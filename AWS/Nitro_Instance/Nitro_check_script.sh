@@ -16,7 +16,7 @@
 
 check_NVMe_in_initrd () {
 
-find_distro=`cat /etc/os-release |sed -n 's|^ID="\([a-z]\{4\}\).*|\1|p'`      # Check if instance is using amazon AMI. 
+find_distro=$(cat /etc/os-release |sed -n 's|^ID="\([a-z]\{4\}\).*|\1|p')      # Check if instance is using amazon AMI. 
 
     if [ -f /etc/redhat-release ] ; then
         # Distribution is Red hat
@@ -69,7 +69,7 @@ check_fstab () {
     sed -n 's|^/dev/\([sx][v]*d[a-z][0-9]*\).*|\1|p' </etc/fstab >/tmp/device_names   # Stores all /dev/sd* and /dev/xvd* entries from fstab into a temporary file
     while read LINE; do
             # For each line in /tmp/device_names
-            UUID=`ls -l /dev/disk/by-uuid | grep "$LINE" | sed -n 's/^.* \([^ ]*\) -> .*$/\1/p'` # Sets the UUID name for that device
+            UUID=$(ls -l /dev/disk/by-uuid | grep "$LINE" | sed -n 's/^.* \([^ ]*\) -> .*$/\1/p') # Sets the UUID name for that device
             if [ ! -z "$UUID" ]
             then
                 sed -i "s|^/dev/${LINE}|UUID=${UUID}|" /etc/fstab.modified.$time_stamp               # Changes the entry in fstab to UUID form
@@ -161,7 +161,7 @@ if [ $? -ne 0 ]
     echo -e "\t> https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#enhanced-networking-ena-linux"
 
 else 
-    ena_version=`modinfo ena|grep -Eo '^version:.*' | awk '{print $2}'`
+    ena_version=$(modinfo ena|grep -Eo '^version:.*' | awk '{print $2}')
     echo -e "\n\nOK     ENA Module with version $ena_version is installed and available on your instance"
 
 fi

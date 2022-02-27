@@ -11,7 +11,7 @@
 ##email subject
 subject="Server Memory Status Alert"
 ##sending mail as
-from="root@ec2-54-152-62-230.compute-1.amazonaws.com"
+from = "root@ec2-54-152-62-230.compute-1.amazonaws.com"
 ## sending mail to
 to="saivenkata7777@gmail.com"
 ## send carbon copy to

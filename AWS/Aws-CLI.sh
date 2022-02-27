@@ -13,4 +13,4 @@ source .bashrc
 
 #-----------------------------------------------------------------------------------------------------------
 aws lambda list-functions | grep function:create_pre_signed_url | cut -f2- -d: | tr -d "," | xargs
-bucket=`aws s3api list-buckets --query "Buckets[].Name" | grep s3bucket | tr -d ',' | sed -e 's/"//g' | xargs`
+bucket=$(aws s3api list-buckets --query "Buckets[].Name" | grep s3bucket | tr -d ',' | sed -e 's/"//g' | xargs)
