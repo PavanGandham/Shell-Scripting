@@ -11,11 +11,11 @@ banana
 pappaya
 #------------------------------------------Sed----------------------------------------------------------------
 # syntax : sed '/second/s/should/will/' inputfile2
- # | | | |
- # | | | with this pattern 
- # | | this pattern
- # | substitute 
- # Search for the pattern "second"
+                    # | | | |
+                    # | | | with this pattern 
+                    # | | this pattern
+                    # | substitute 
+                    # Search for the pattern "second"
 
 1. How to add a header line say "Employee, EmpId" to this file using sed?
 
