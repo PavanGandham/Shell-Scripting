@@ -11,7 +11,7 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo \
 
 # Import a key file from Jenkins-CI to enable installation from the package:
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-sudo yum upgrade
+sudo yum upgrade -y 
 
 # Install Java:
 sudo amazon-linux-extras install java-openjdk11 -y
