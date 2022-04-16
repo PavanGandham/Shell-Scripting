@@ -25,7 +25,7 @@ TEST=Ravi
 echo "Execute Double Quote $VAR"
 echo 'Executing Single Quote $VAR $TEST'
 
-echo "This Host Name: `hostname`"
+echo "This Host Name: $(hostname)"
 
 ## END
 

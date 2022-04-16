@@ -1,7 +1,7 @@
 # Debug shell script easily identify any errors Improvements Shell Script
 
 
-`While searching on Internet found very interesting and useful website which helps you, 
+'''$(While searching on Internet found very interesting and useful website which helps you, 
 Debug shell script easily identify any errors Improvements in Shell script. 
 Whatever the script you wrote, you can easily check with this tool.
 Beginners write scripts but they don’t know really written in good format Or all parameters 
@@ -14,7 +14,8 @@ Improve your script like Pro
 Get ride of syntax error’s
 Handy / Simple tool
 Either you can use this tool online www.shellcheck.net Or you can install directly on your 
-Linux / Unix like system and use it.`
+Linux / Unix like system and use it.)
+'''
 
 # Debug shell script easily identify any errors in Linux
 # Simply install using below commands on various distributions.
@@ -41,7 +42,7 @@ yum install shellcheck
 
 # Output from Ubuntu
 
-`apt-get install shellcheck
+'''pt-get install shellcheck
 
 Reading package lists... Done
 Building dependency tree
@@ -59,7 +60,7 @@ Preparing to unpack .../shellcheck_0.3.7-5_amd64.deb ...
 Unpacking shellcheck (0.3.7-5) ...
 Processing triggers for man-db (2.7.5-1) ...
 Setting up shellcheck (0.3.7-5) ...
-Now we are ready to debug shell scripts from Linux using shellcheck command`
+Now we are ready to debug shell scripts from Linux using shellcheck command'''
 
 shellcheck whichbig.sh
 

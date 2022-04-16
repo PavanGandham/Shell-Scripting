@@ -1,4 +1,4 @@
-`Coloring Style Text Using Shell Scripting – Color Codes Table
+'''Coloring Style Text Using Shell Scripting – Color Codes Table
 Color          Background Foreground
 Red            41             31
 Black          40             30
@@ -8,8 +8,8 @@ Yellow         43             33
 Magenta        45             35
 Cyan           46             36
 white          47             37
-`
-`Changing text Style in shell script
+
+Changing text Style in shell script
 Style          Number
 Plain           0
 Bold            1
@@ -18,7 +18,7 @@ Underline       4
 Blinking        5
 Reverse         7
 Invisible       8
-`
+'''
 
 #!/bin/bash
 #

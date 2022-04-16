@@ -1,6 +1,6 @@
 #!/bin/bash
 ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
-eval `ssh-agent`
+eval $(ssh-agent)
 ssh-agent bash -c \
 'ssh-add /home/ubuntu/.ssh/[privateKey]; git clone git@github.com:[account]/project.git'
 #use ssh agent forwarding.
