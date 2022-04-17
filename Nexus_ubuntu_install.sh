@@ -19,18 +19,28 @@ for i in ${arr[@]}; do
     printf "$i\n"
 done
 # Verifying Java JDk is available or not
-func_jdk () {
+func_jdk() {
     echo -e "\n####### Step-1 : Checking if Java JDK version 1.8 is available or not #######\n"
     java -version >version.txt 2>&1
     JAVA_VERSION="$(cat version.txt | grep -i version | grep -Eo '[0-9]\.[0-9]+')"
     if [ $JAVA_VERSION == "1.8" ]; then
         echo -e "Java version $JAVA_VERSION is available\n"
     else
-    sudo apt install openjdk-8-jre-headless -y
+        sudo apt install openjdk-8-jre-headless -y
     fi
 }
 
 # Verifying CPU is min 4 or not
+func_cpu() {
+    MAX_CPU="4"
+    CPU_CORES="$(cat /proc/cpuinfo | grep -i "cpu cores" | cut -d : -f2)"
+    echo -e "\n####### Step-2 : Checking if Having CPUs = 4 available or not #######\n"
+    if [ $CPU_CORES == "4" ]; then
+        echo -e "\n Minimum CPU requirement is met\n"
+    else
+        echo -e "Minimum CPU requirement is not met , need $(expr $MAX_CPU - $CPU_CORES) more CPUs\n"
+    fi
+}
 
 for ((j = 0; j < ${#arr[@]}; j++)); do
     case ${arr[j]} in
@@ -54,4 +64,3 @@ for ((j = 0; j < ${#arr[@]}; j++)); do
         ;;
     esac
 done
-
