@@ -52,10 +52,10 @@ sudo ufw enable
 # reloadconfig user API Token - 110de73dcec71840cded4f643cd3b7ebac
 
 #Download Jenkins CLI on both Primary and Secondary Servers (If loadbalancing used else secondary is enough)
-wget http://ec2-3-238-93-44.compute-1.amazonaws.com:8080/jnlpJars/jenkins-cli.jar
+#wget http://ec2-3-238-93-44.compute-1.amazonaws.com:8080/jnlpJars/jenkins-cli.jar
 
 #Add this to crontab on Secondary (Also on Primary If Loadbalancing is used)
-java -jar /root/jenkins-cli.jar -s http://ec2-3-238-93-44.compute-1.amazonaws.com:8080 -auth reloadconfig:110de73dcec71840cded4f643cd3b7ebac reload-configuration 
+#java -jar /root/jenkins-cli.jar -s http://ec2-3-238-93-44.compute-1.amazonaws.com:8080 -auth reloadconfig:110de73dcec71840cded4f643cd3b7ebac reload-configuration 
 
 #-------------------------------------Jenkins-in-Docker------------------------------------------------------------
-https://www.jenkins.io/doc/book/installing/docker/
+#https://www.jenkins.io/doc/book/installing/docker/
