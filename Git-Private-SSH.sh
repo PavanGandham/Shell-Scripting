@@ -77,5 +77,4 @@ ssh -T git@github.com
 # > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 # > Are you sure you want to continue connecting (yes/no)?
 # Verify that the fingerprint in the message you see matches GitHub's RSA public key fingerprint. If it does, then type yes:
-# > Hi username! You've successfully authenticated, but GitHub does not
-# > provide shell access.
+# > Hi username! You've successfully authenticated, but GitHub does not provide shell access.

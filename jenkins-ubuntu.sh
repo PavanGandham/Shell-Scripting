@@ -11,6 +11,7 @@ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key 
 # When the key is added, the system will return OK. 
 # Next, append the Debian package repository address to the server’s sources.list:
 # echo 'deb https://pkg.jenkins.io/debian-stable binary/' >> /etc/apt/sources.list
+
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 sudo apt upgrade -y
@@ -39,7 +40,6 @@ sudo systemctl enable jenkins
 
 # Open Port 8080 on ufw for jenkins 
 sudo ufw allow 8080
-
 # check the ufw satus 
 sudo ufw status
 
