@@ -121,6 +121,8 @@ To access Nexus repository web interface , open your favorite browser
 if you are running UFW firewall on Ubuntu, open the firewall port 8081 using below command
 
 ufw allow 8081/tcp
+ufw allow 22/tcp
+ufw start 
 http://server_IP:8081
 
 To login to Nexus, click on Sign In, default username is admin

@@ -19,11 +19,6 @@ than threshold value.'''
 ## You can change your threshold value whatever you want ##
 THRESHOLD=90
 PATHS=/
-AWK=/bin/awk
-DU=`/usr/bin/du -ks`
-GREP=/bin/grep
-SED=/bin/sed
-CAT=/bin/cat
 MAILFILE=/tmp/mailviews$$
 MAILER=/bin/mail
 ## Change ADMIN Mail address as per the requirement ##
@@ -32,7 +27,7 @@ mailto=pavangandham99@gmail.com
 for path in $PATHS
 do
 ## Validate the Percentage of Disk space ##
-DISK_AVAIL=`/bin/df -k / | grep -v Filesystem |awk '{print $5}' |sed 's/%//g'`
+DISK_AVAIL=`/bin/df -k / | grep -v Filesystem |awk '{print $6}' |sed 's/%//g'`
 if [ $DISK_AVAIL -ge $THRESHOLD ]
 then
 echo "Please clean up your stuff \n\n" > $MAILFILE
@@ -40,10 +35,10 @@ $CAT $MAILFILE | $MAILER -s "Clean up stuff" $mailto
 fi
 done
 ## END of the Script ##
+'''
 Explanation of script: Above script is written using one FOR loop and one IF condition.
 
-
- 
 /bin/df -k / | grep -v Filesystem |awk ‘{print $5}’ |sed ‘s/%//g’ <<– This line will calculate the disk space in percentage number
 
 if [ $DISK_AVAIL -ge $THRESHOLD ] <<– This IF condition will validate the space, which is provided by the above command then number greater then or equal to 90 it will trig an alert using mail command to your given ADMIN address.
+'''
