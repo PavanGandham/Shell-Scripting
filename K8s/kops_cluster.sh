@@ -6,7 +6,8 @@ export CLUSTER_NAME=pavank8s.ml
 export EDITOR='/usr/bin/nano'
 #export K8S_VERSION=1.21.0
 alias ku=kubectl
-complete -F __start_kubectl ku' >> ~/.bashrc
+complete -F __start_kubectl ku
+source <(kubectl completion bash)' >> ~/.bashrc
 
 source ~/.bashrc
 
