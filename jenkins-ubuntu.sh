@@ -3,7 +3,7 @@
 # Step 1 — Installing Jenkins
 
 # Ensure that your software packages are up to date on your instance
-sudo apt update -y
+sudo apt update
 
 # First, add the repository key to the system
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -14,7 +14,7 @@ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key 
 
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
-sudo apt update -y
+sudo apt update
 
 # Install Java JDK 8  
 sudo apt install openjdk-8-jdk -y
@@ -49,12 +49,21 @@ sudo ufw enable
 
 #---------------------------------High-Availability----------------------------------------------------------------
 
+#Create a jenkins user example reloadconfig and login with theat user and create a token which is used o reload the config
+#rather than restarting the server. Make sure you have restarted the secondary jenkins service so that user is visible to secondary
+
+# On the Secondary create a cron scheduler as below
+# change the user as jenkins using su - jenkins
+# Copy jenkins-cli.jar to jenkins home folder which is /var/lib/jenkins
+
+# crontab -e
 # reloadconfig user API Token - 110de73dcec71840cded4f643cd3b7ebac
 
 #Download Jenkins CLI on both Primary and Secondary Servers (If loadbalancing used else secondary is enough)
 #wget http://ec2-3-238-93-44.compute-1.amazonaws.com:8080/jnlpJars/jenkins-cli.jar
 
 #Add this to crontab on Secondary (Also on Primary If Loadbalancing is used)
+#                                    <Secondary- Server IP>
 #java -jar /root/jenkins-cli.jar -s http://ec2-3-238-93-44.compute-1.amazonaws.com:8080 -auth reloadconfig:110de73dcec71840cded4f643cd3b7ebac reload-configuration 
 
 #-------------------------------------Jenkins-in-Docker------------------------------------------------------------
