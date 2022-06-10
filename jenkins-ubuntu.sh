@@ -48,6 +48,11 @@ sudo ufw allow OpenSSH
 sudo ufw enable
 
 #---------------------------------High-Availability----------------------------------------------------------------
+# Create a EFS filesystem and attach to the jenkins servers both primary and secondary 
+
+# nano /etc/fstab
+# fs-05af536c8919a13d2.efs.us-east-1.amazonaws.com:/	/var/lib/jenkins	nfs	defaults	0 0
+# mount -a
 
 #Create a jenkins user example reloadconfig and login with theat user and create a token which is used o reload the config
 #rather than restarting the server. Make sure you have restarted the secondary jenkins service so that user is visible to secondary
