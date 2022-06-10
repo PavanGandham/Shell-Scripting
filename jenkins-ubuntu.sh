@@ -3,7 +3,7 @@
 # Step 1 — Installing Jenkins
 
 # Ensure that your software packages are up to date on your instance
-sudo apt update -y
+sudo apt update
 
 # First, add the repository key to the system
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -14,7 +14,7 @@ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key 
 
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
-sudo apt update -y
+sudo apt update
 
 # Install Java JDK 8  
 sudo apt install openjdk-8-jdk -y
