@@ -66,5 +66,22 @@ sudo ufw enable
 #                                    <Secondary- Server IP>
 #java -jar /root/jenkins-cli.jar -s http://ec2-3-238-93-44.compute-1.amazonaws.com:8080 -auth reloadconfig:110de73dcec71840cded4f643cd3b7ebac reload-configuration 
 
+# crontab -l
+# <mkcert>
+# wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64
+# mv mkcert-v1.4.4-linux-amd64 mkcert
+# chmod 700 mkcert
+# ./mkcert "*.pavank8s.ml"
+# cat _wildcard.pavank8s.ml.pem > pavank8s.ml-fullchain.pem
+# cat /root/.local/share/mkcert/rootCA.pem >> pavank8s.ml-fullchain.pem
+
+# <Primary-Server>
+# wget http://ec2-34-228-61-142.compute-1.amazonaws.com:8080/jnlpJars/jenkins-cli.jar
+
+# crontab -e
+
+# * * * * * java -jar /root/Jenkins-Primary/jenkins-cli.jar -s http://ec2-35-173-178-160.compute-1.amazonaws.com:8080 -auth reloadconfig:11c76a1c5954bc10d048c0b7b71836d467 reload-configuration
+
+
 #-------------------------------------Jenkins-in-Docker------------------------------------------------------------
 #https://www.jenkins.io/doc/book/installing/docker/
