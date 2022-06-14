@@ -12,7 +12,7 @@ openssl x509 -req -in anand.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out an
 
 # 4. similarly create for bala as bala.key , bala.csr
 openssl genrsa -out bala.key 2048
-openssl req -new -key bala.key -out anand.csr -subj "/CN=bala/O=production"
+openssl req -new -key bala.key -out bala.csr -subj "/CN=bala/O=production"
 
 # 5. create a certificate using these csr and key 
 openssl x509 -req -in bala.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out bala.crt -days 45
