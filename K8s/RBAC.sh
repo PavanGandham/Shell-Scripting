@@ -16,3 +16,7 @@ openssl req -new -key bala.key -out bala.csr -subj "/CN=bala/O=production"
 
 # 5. create a certificate using these csr and key 
 openssl x509 -req -in bala.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out bala.crt -days 45
+
+
+# Kubernetes Dashboard Token generation
+kubectl -n kubernetes-dashboard describe secrets $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard | awk '{print $1}')
