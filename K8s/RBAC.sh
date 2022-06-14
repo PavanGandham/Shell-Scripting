@@ -19,4 +19,4 @@ openssl x509 -req -in bala.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out bal
 
 
 # Kubernetes Dashboard Token generation
-kubectl -n kubernetes-dashboard describe secrets $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard | awk '{print $1}')
+kubectl -n kubernetes-dashboard describe secrets $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
