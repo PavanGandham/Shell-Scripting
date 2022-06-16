@@ -1,5 +1,5 @@
 # Shell-Scripting
-Linux bash scripts of  different automations useful in projects.
+Linux bash scripts of different automations useful in projects.
 
 #########Git Status#############
 ' ' = unmodified
