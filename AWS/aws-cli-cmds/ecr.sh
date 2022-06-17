@@ -20,7 +20,7 @@ RUN echo '. /etc/apache2/envvars' > /root/run_apache.sh && \
 
 EXPOSE 80
 
-CMD /root/run_apache.sh' >> Dockerfile
+CMD /root/run_apache.sh' >>Dockerfile
 
 docker build -t hello-world .
 docker images --filter reference=hello-world
@@ -32,9 +32,9 @@ aws ecr get-login-password --region region | docker login --username AWS --passw
 
 # Step 3: Create a repository
 aws ecr create-repository \
-    --repository-name hello-world \
-    --image-scanning-configuration scanOnPush=true \
-    --region region
+--repository-name hello-world \
+--image-scanning-configuration scanOnPush=true \
+--region region
 
 # Step 4: Push an image to Amazon ECR
 docker tag hello-world:latest aws_account_id.dkr.ecr.region.amazonaws.com/hello-world:latest
@@ -45,12 +45,12 @@ docker pull aws_account_id.dkr.ecr.region.amazonaws.com/hello-world:latest
 
 # Step 6: Delete an image
 aws ecr batch-delete-image \
-      --repository-name hello-world \
-      --image-ids imageTag=latest \
-      --region region
+--repository-name hello-world \
+--image-ids imageTag=latest \
+--region region
 
 # Step 7: Delete a repository
 aws ecr delete-repository \
-      --repository-name hello-world \
-      --force \
-      --region region
+--repository-name hello-world \
+--force \
+--region region
