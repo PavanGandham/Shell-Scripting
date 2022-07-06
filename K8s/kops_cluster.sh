@@ -10,6 +10,7 @@ alias ku=kubectl
 complete -F __start_kubectl ku
 source <(kubectl completion bash)
 source <(kops completion bash)
+alias cutils='kubectl run utils --image=sreeharshav/utils:latest'
 ' >> ~/.bashrc
 
 source ~/.bashrc
