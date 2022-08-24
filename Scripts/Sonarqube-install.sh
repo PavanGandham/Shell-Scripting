@@ -2,6 +2,7 @@
 set -xeu
 
 # Install SonarQube on Ubuntu 20.04 LTS
+# https://www.vultr.com/docs/install-sonarqube-on-ubuntu-20-04-lts
 
 : '
 Prerequisites:
@@ -68,12 +69,15 @@ sudo apt-get install zip -y
 
 # Download the SonarQube distribution files.
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-<VERSION_NUMBER>.zip
+# sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.9.56886.zip
 
 # Unzip the downloaded file.
 sudo unzip sonarqube-<VERSION_NUMBER>.zip
+# sudo unzip sonarqube-8.9.9.56886.zip
 
 # Move the unzipped files to /opt/sonarqube directory
 sudo mv sonarqube-<VERSION_NUMBER> /opt/sonarqube
+# sudo mv sonarqube-8.9.9.56886 /opt/sonarqube
 
 # 4. Add SonarQube Group and User
 
