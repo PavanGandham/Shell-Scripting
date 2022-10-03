@@ -1,2 +1,3 @@
 *.vscode
-pat_token.txt
+*pat_token.txt
+*.exe
