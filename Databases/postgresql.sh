@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # How To Install and Use PostgreSQL on Ubuntu 20.04
+# https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/
 
 #Step 1 — Installing PostgreSQL
 sudo apt update
@@ -110,3 +111,5 @@ SELECT * FROM playground;
 # (1 row)
 
 
+# Postgresql Data Directory /var/lib/postgresql/12/main
+# Configurations files are stored in the /etc/postgresql/12/main directory
