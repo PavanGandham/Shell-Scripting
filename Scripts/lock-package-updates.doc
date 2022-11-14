@@ -1,0 +1,234 @@
+-> How To Keep A Package From Updating In Ubuntu, Debian Or Linux Mint [APT]
+There are 3 ways of preventing a package from updating in Debian, Ubuntu, Linux Mint.
+
+( 1.) Prevent package updates using a GUI: Synaptic Package Manager
+
+Synaptic Package Manager, a Gtk graphical package management program for apt, can lock packages which prevents them from being updated.
+
+It's important to note that using Synaptic to lock packages won't keep them from being updated from the command line - running apt upgrade or apt-get upgrade will still upgrade a package locked in Synaptic. Locking packages in Synaptic will prevent package upgrades using Ubuntu's Software Updater app, and possibly other graphical package managers. It will not prevent updating packages using the Linux Mint Update Manager application though. As a result, I recommend using apt-mark or dpkg (see below) to keep packages from updating.
+
+You can install Synaptic Package Manager using this command:
+
+                    [sudo apt install synaptic]
+To prevent a package from updating using Synaptic, search for it, select the package and from the Synaptic menu click Package -> Lock Version:
+In the same way you can unlock the package too.
+
+To see all locked packages in Synaptic, click Status in the bottom left-hand side, then click on Pinned above the Status section:
+
+
+( 2.) Keep a package from updating using apt-mark
+Holding packages from updating with apt-mark should prevent them from updating using Ubuntu's Software Updater, as well as command line upgrades (apt upgrade / apt-get upgrade).
+
+You can hold a package from future upgrades (and from being automatically removed) with apt-mark by using this command:
+
+                       [ sudo apt-mark hold PACKAGE ]
+
+Replacing PACKAGE with the package you want to hold from updating.
+
+You can check which packages are marked as hold (so they won't be updated) by using:
+
+                        [apt-mark showhold]
+To remove a hold (so the package can be updated), use:
+
+                        [sudo apt-mark unhold PACKAGE]
+
+For both hold and unhold you can specify multiple packages, just like when installing software with apt (separate the packages by a space).
+
+( 3.) Prevent package updates with dpkg
+A while back there were some graphical package managers that ignored the apt-mark hold status. I'm not sure if that's still the case, but just to be safe (and in case you're using an old Debian / Ubuntu / Linux Mint version), here's another way of preventing package updates in Ubuntu, Linux Mint or Debian: dpkg.
+
+To prevent a package from upgrades using dpkg, use:
+
+                       [echo "PACKAGE hold" | sudo dpkg --set-selections]
+
+Replace PACKAGE with the package you want to hold from updating.
+
+You can see all package holds using this command:
+
+                         [dpkg --get-selections | grep hold]
+
+To remove the hold (allow the package to be upgraded), use:
+
+                     [echo "PACKAGE install" | sudo dpkg --set-selections]
+
+Unlike apt-mark, this solution doesn't allow specifying multiple packages at once.
+
+Holding
+There are different ways of holding back packages: with dpkg, apt, dselect, aptitude or Synaptic.
+
+dpkg
+Put a package on hold:
+
+echo "<package-name> hold" | sudo dpkg --set-selections
+Remove the hold:
+
+echo "<package-name> install" | sudo dpkg --set-selections
+Display the status of all your packages:
+
+dpkg --get-selections
+Display the status of a single package:
+
+dpkg --get-selections <package-name>
+Show all packages on hold:
+
+dpkg --get-selections | grep "\<hold$"
+apt
+Hold a package:
+
+sudo apt-mark hold <package-name>
+Remove the hold:
+
+sudo apt-mark unhold <package-name>
+Show all packages on hold:
+
+sudo apt-mark showhold
+dselect
+With dselect, enter the [S]elect screen, find the package you wish to hold in its present state and press = or H. The changes will take effect immediately after exiting the [S]elect screen.
+
+The following approaches are limited in that locking/holding a package within aptitude or synaptic doesn't affect apt-get/apt.
+
+aptitude
+Hold a package:
+
+sudo aptitude hold <package-name>
+Remove the hold:
+
+sudo aptitude unhold <package-name>
+Locking with Synaptic Package Manager
+Go to Synaptic Package Manager (System > Administration > Synaptic Package Manager).
+
+Click the search button and type the package name.
+
+When you find the package, select it and go to the Package menu and select Lock Version.
+That package will now not show in the update manager and will not be updated.
+
+
+                                4 Ways to Disable/Lock Certain Package Updates Using Yum Command
+
+Disable/Lock Package Updates using Yum
+Yellow dog Updater, Modified (yum) is package management tool in RedHat based distributions such as CentOS and Fedora. 
+Various strategies used to Lock/Disable Package Updates using Yum are discussed below:
+
+1. Permanently Disable Package for Install or Update
+
+1. Open and edit the yum.conf file, which is located in /etc/yum.conf or in /etc/yum/yum.conf.
+
+It looks like below:
+
+[main]
+cachedir=/var/cache/yum/$basearch/$releasever
+keepcache=0
+debuglevel=2
+logfile=/var/log/yum.log
+exactarch=1
+obsoletes=1
+gpgcheck=1
+plugins=1
+installonly_limit=5
+bugtracker_url=http://bugs.centos.org/set_project.php?project_id=23&ref=http://bugs.centos.org/bug_report_page.php?category=yum
+distroverpkg=centos-release
+...
+Here, to exclude certain package from installation or up-gradation, you just need to add exclude variable along with name of package you wish to exclude. For example, if I want to exclude all the python-3 packages from getting updated, then I will just append following line to yum.conf:
+
+exclude=python-3*
+For more than one package to exclude just separate their names by space.
+
+exclude=httpd php 
+[main]
+cachedir=/var/cache/yum/$basearch/$releasever
+keepcache=0
+debuglevel=2
+logfile=/var/log/yum.log
+exactarch=1
+obsoletes=1
+gpgcheck=1
+plugins=1
+installonly_limit=5
+bugtracker_url=http://bugs.centos.org/set_project.php?project_id=23&ref=http://bugs.centos.org/bug_report_page.php?category=yum
+distroverpkg=centos-release
+exclude=python-3*        [Exclude Single Package]
+exclude=httpd php        [Exclude Multiple Packages]
+...
+Note: to include these packages, ignoring entries in yum.conf, use “-disableexcludes” and set it to all|main|repoid, where ‘main’ are those entered in yum.conf and ‘repoid’ are those whose exclusion is specified in repos.d directory, as explained later on.
+
+Now let’s try to install or update the specified packages and see the yum command will disable them installing or updating.
+
+# yum install httpd php
+
+Loaded plugins: fastestmirror, langpacks, versionlock
+Loading mirror speeds from cached hostfile
+ * base: mirror.nbrc.ac.in
+ * epel: mirror.wanxp.id
+ * extras: mirror.nbrc.ac.in
+ * updates: mirror.nbrc.ac.in
+Nothing to do
+# yum update httpd php
+
+Loaded plugins: fastestmirror, langpacks, versionlock
+Loading mirror speeds from cached hostfile
+ * base: mirror.nbrc.ac.in
+ * epel: mirror.wanxp.id
+ * extras: mirror.nbrc.ac.in
+ * updates: mirror.nbrc.ac.in
+No packages marked for update                                
+
+2. Temporarily Disable Package for Install or Update
+2. Above was a permanent solution to exclude a package as unless file is edited, that package won’t get updated. Here is a temporary solution for this also. Just at the time when you go for any update, use -x switch in yum command to exclude package which you do not want to update, like:
+
+# yum -x python-3 update
+The above command will update all the packages whose updates are available, excluding python-3 on your system.
+
+Here, for excluding multiple packages, use -x multiple times, or separate package names with ',' in a single switch.
+
+# yum -x httpd -x php update
+OR
+# yum -x httpd,php update
+3. Using --exclude switch works same as -x, just need to replace -x with –exclude and pass ',' separated list of package names to it.
+
+# yum --exclude httpd,php
+3. Disable Package Updates using Repository
+4. For any package installed from any external source via adding a repository, there is another way to stop its up-gradation in future. This can be done by editing its .repo file which is created in /etc/yum/repos.d/ or /etc/yum.repos.d directory.
+
+Add the exclude option with the package name in the repo. Like: to exclude any package say wine from epel repo, add the following line in epel.repo file:
+
+[epel]
+name=Extra Packages for Enterprise Linux 7 - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+exclude=wine
+Now try to update the wine package, you will get error like shown below:
+
+# yum update wine
+
+Loaded plugins: fastestmirror, langpacks, versionlock
+epel/x86_64/metalink                                    | 5.6 kB     00:00     
+Loading mirror speeds from cached hostfile
+ * base: mirror.nbrc.ac.in
+ * epel: mirror.wanxp.id
+ * extras: mirror.nbrc.ac.in
+ * updates: mirror.nbrc.ac.in
+No Match for argument: wine
+No package wine available.
+No packages marked for update
+4. Disable Package Update Using versionlock Option
+5. Another way in yum to mask the version of any package thus making it unavailable for up-gradation, is to use versionlock option of yum, but to do this, you must yum-plugin-versionlock package installed on the system.
+
+# yum -y install yum-versionlock
+For example, to lock the version of package say httpd to 2.4.6 only, just write following command as root.
+
+# yum versionlock add httpd
+Sample Output
+Loaded plugins: fastestmirror, langpacks, versionlock
+Adding versionlock on: 0:httpd-2.4.6-40.el7.centos
+versionlock added: 1
+To view locked packages, use the following command will list the packages which have been version locked.
+
+# yum versionlock list httpd
+Sample Output
+Loaded plugins: fastestmirror, langpacks, versionlock
+0:httpd-2.4.6-40.el7.centos.*
+versionlock list done

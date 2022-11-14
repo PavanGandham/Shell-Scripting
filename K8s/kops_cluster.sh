@@ -1,4 +1,5 @@
 #!/bin/bash
+# Setting Env variables and auto completion for kubectl and kops
 echo 'export NAME=pavank8s.ml
 export KOPS_STATE_STORE=s3://pavank8sb12cluster
 export AWS_REGION=us-east-1
@@ -7,9 +8,14 @@ export EDITOR='/usr/bin/nano'
 #export K8S_VERSION=1.21.0
 alias ku=kubectl
 complete -F __start_kubectl ku
-source <(kubectl completion bash)' >> ~/.bashrc
+source <(kubectl completion bash)
+source <(kops completion bash)
+alias cutils='kubectl run utils --image=sreeharshav/utils:latest'
+' >> ~/.bashrc
 
 source ~/.bashrc
+# for all sessions in linux 
+kops completion bash > /etc/bash_completion.d/kops
 
 # Create an SSH Key pair 
 ssh-keygen -t rsa -b 4096

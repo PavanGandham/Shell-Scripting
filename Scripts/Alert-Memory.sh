@@ -31,3 +31,7 @@ if [[ "$free" -le 400 ]]; then
 fi
 
 exit 0
+
+# After creating the script /etc/scripts/alertmemory.sh , make it executable and symlink to cron.hourly
+chmod +x /etc/scripts/alertmemory.sh
+ln -s -t /etc/cron.hourly/alertmemory.sh /etc/scripts/alertmemory.sh

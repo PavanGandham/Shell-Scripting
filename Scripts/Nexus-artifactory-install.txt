@@ -27,7 +27,7 @@ update the system packages
 sudo apt-get update
 
 #1: Install OpenJDK 1.8 on Ubuntu 20.04 LTS
-sudo apt install openjdk-8-jre-headless
+sudo apt install openjdk-8-jre-headless -y
 
 #2: Download Nexus Repository Manager setup on Ubuntu 20.04 LTS
 Download the latest Nexus Repository Manager Setup from official nexus page.
@@ -127,5 +127,5 @@ http://server_IP:8081
 
 To login to Nexus, click on Sign In, default username is admin
 To find default password run the below command
-cat /opt/nexus/sonatype-work/nexus3/admin.password
+cat /opt/sonatype-work/nexus3/admin.password
 copy the default nexus password and login, you can reset the password once logged in to nexus

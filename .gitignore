@@ -1,3 +1,8 @@
 *.vscode
+<<<<<<< HEAD
 pat_token.txt
 *.exe
+=======
+*pat_token.txt
+*.exe
+>>>>>>> feature/SS-1

@@ -18,8 +18,8 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # install and configure tomcat7
-apt-get install -y tomcat7
-service tomcat7 restart
+apt-get install -y tomcat9
+service tomcat9 restart
 
 # make tomcat available on port 80
 iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT
