@@ -1,4 +1,4 @@
-# S3Sync
+# S3-Sync
 Check more: https://www.dennyzhang.com/sync_s3_directory
 
 Sync a directory to/from S3 bucket

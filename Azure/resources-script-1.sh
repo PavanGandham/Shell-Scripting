@@ -1,5 +1,5 @@
 #!/bin/bash
-RG=K8sB12
+RG=K8s-Resource-Group
 echo "---------Creating Azure Resource Group-------------------"
 
 az group create --location eastus -n ${RG}
