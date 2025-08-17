@@ -1,5 +1,25 @@
 # 🐚 Shell-Scripting Master Guide 📖
 
+<p align="center">
+  <img src="https://img.shields.io/badge/OpsCatalyst-DevOps-blue" alt="OpsCatalyst" />
+  <img src="https://img.shields.io/badge/Shell-Bash-green" alt="Shell Bash" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT License" />
+</p>
+
+<details>
+<summary><strong>✨ Why This Repo?</strong></summary>
+
+This is your one-stop shop for shell scripting mastery! Whether you're automating cloud, managing infrastructure, or just want to level up your Linux skills, this repo is packed with:
+- Real-world scripts for DevOps, SRE, and sysadmin tasks
+- Cloud automation (AWS, Azure)
+- Infrastructure as Code (Terraform, Ansible)
+- Docker & Kubernetes helpers
+- Database utilities
+- Bash programming exercises
+- Cheat sheets & quick references
+- Practice files for hands-on learning
+</details>
+
 ```
             ▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
             ▐                                                                        ▌
@@ -34,122 +54,122 @@ Welcome to the **Shell-Scripting Master📜** repository, proudly maintained by 
 
 ---
 
+
 ## 📋 Table of Contents
 1. [Project Overview](#project-overview)
-2. [Folder Structure](#folder-structure)
-    - [Ansible](#ansible)
-    - [AWS](#aws)
-    - [AZURE](#azure)
-    - [Bash-Programming](#bash-programming)
-    - [Bash-Scripting](#bash-scripting)
-    - [cheatsheets](#cheatsheets)
-    - [Databases](#databases)
-    - [Docker](#docker)
-    - [K8s](#k8s)
-    - [Practice](#practice)
-    - [Scripts](#scripts)
-    - [Shell-Projects](#shell-projects)
-    - [Terraform](#terraform)
-3. [Git Status Cheat Sheet](#git-status-cheat-sheet)
-4. [References](#references)
-5. [Contributing](#contributing)
-6. [License](#license)
+2. [Folder Structure & Highlights](#folder-structure--highlights)
+3. [References](#references)
+4. [Contributing](#contributing)
+5. [License](#license)
 
 ---
+
 
 ## 📖 Project Overview
-This repository contains:
-- 🚀 Ready-to-use bash scripts for automation
-- ☁️ Cloud CLI scripts (AWS, Azure)
-- 🏗️ Infrastructure as Code samples
-- 🗄️ Database utilities
-- 🐳 Docker and Kubernetes helpers
-- 📑 Cheat sheets for quick reference
-- 🧪 Practice files for learning and testing
+This repository is a curated collection of shell scripts and automation tools for:
+- **DevOps & SRE:** System monitoring, backups, health checks, security hardening, CI/CD helpers
+- **Cloud Automation:** AWS (EC2, S3, ECS, AMI, Nitro), Azure resource scripts
+- **Infrastructure as Code:** Terraform modules, Ansible playbook runners
+- **Containers & Orchestration:** Docker management, Kubernetes (Helm, ArgoCD, RBAC, kops)
+- **Database Utilities:** PostgreSQL scripts, sample data
+- **Bash Programming:** Classic exercises (Fibonacci, Armstrong, Fractals, Math)
+- **Cheat Sheets:** Bash, jq, tmux, vi editor
+- **Practice & Learning:** Hands-on files for testing shell commands
 
 ---
 
-## 📂 Folder Structure
+
+
+
+
+
+## 📂 Folder Structure & Highlights
 
 <details>
-<summary><strong>Ansible</strong></summary>
-Scripts for automating configuration management using Ansible.<br>
-<code>Ansible.sh</code>: Run and manage Ansible playbooks.
+<summary>Click to expand folder structure</summary>
+
+- **[Ansible/](./Ansible)** — Automation with Ansible playbooks and inventory
+  - `ansible.sh`: Run and manage playbooks, inventory, and roles
+- **[Aws/](./Aws)** — AWS CLI, EC2, S3, ECS, AMI, Nitro, and more
+  - `ami/`: AMI management scripts
+  - `cli/`: AWS CLI helpers
+  - `ec2/`: EC2 instance automation
+  - `ecr/`: ECR registry scripts
+  - `ecs/`: ECS cluster and service scripts
+  - `nitro_Instance/`: Nitro instance utilities
+  - `s3/`: S3 bucket management
+- **[Azure/](./Azure)** — Azure resource management and automation
+  - `resources-script-1.sh`: Provision and manage Azure resources
+- **[Bash-Programming/](./Bash-Programming)** — Classic bash programming exercises
+  - `amstrong-number.sh`: Armstrong number check
+  - `fibonacci.sh`: Fibonacci sequence generator
+  - `fractal.sh`: Fractal pattern script
+  - `mathematical-exprs.sh`: Math expressions evaluator
+  - `n-numbers-average.sh`: Average calculator
+  - `odd-natural-nums.sh`: Odd number generator
+- **[Bash-Scripting/](./Bash-Scripting)** — Core bash scripting concepts and utilities
+  - `arrays/`: Array operations
+  - `awk/`: AWK usage examples
+  - `conditions/`: Conditional logic scripts
+  - `debug/`: Debugging helpers
+  - `functions/`: Bash functions
+  - `grep/`: Grep usage and patterns
+  - `loops/`: Loop constructs
+  - `miscellaneous/`: Misc scripts
+  - `operators/`: Operator usage
+  - `sed/`: Sed usage and patterns
+- **[Cheatsheets/](./Cheatsheets)** — Quick reference scripts and images
+  - `bash-cheatsheet.sh`: Bash quick reference
+  - `jq-cheatsheet.sh`: jq quick reference
+  - `tmux-cheat-sheet.webp`: tmux visual cheat sheet
+  - `tmux-cheatsheet.webp`: tmux visual cheat sheet
+  - `vi-editor-cheatsheet.txt`: vi editor cheat sheet
+- **[Databases/](./Databases)** — PostgreSQL scripts and sample data
+  - `postgres-data.sql`: Sample PostgreSQL data
+  - `postgres-data-1.sql`: Sample PostgreSQL data
+  - `postgresql.sh`: PostgreSQL management
+- **[Docker/](./Docker)** — Docker management and orchestration
+  - `docker-compose.sh`: Compose file automation
+  - `docker-container-status.sh`: Container status checker
+  - `docker.sh`: Docker helpers
+- **[Kubernetes/](./Kubernetes)** — Kubernetes and cloud-native automation
+  - `argocd_install.sh`: ArgoCD setup
+  - `certbot-letsencrypt.sh`: Certbot for Let's Encrypt
+  - `helm_install.sh`: Helm installation
+  - `kops_cluster.sh`: kops cluster management
+  - `kops_install.sh`: kops installer
+  - `kubectl_install.sh`: kubectl installer
+  - `kubens-kubectx_install.sh`: Namespace/context switchers
+  - `kubernetes.sh`: General K8s helpers
+  - `rbac.sh`: RBAC configuration
+- **[Practice/](./Practice)** — Practice files and scripts for learning
+  - `file-1`: Sample file
+  - `file-2`: Sample file
+  - `file-3`: Sample file
+  - `mergedfile`: Merged output
+  - `multi-file-line-copy.sh`: Multi-file line copy utility
+  - `test.sh`: Test script
+- **[Scripts/](./Scripts)** — Utility scripts for sysadmin, monitoring, backups, security, and more
+  - `alert-memory.sh`: Memory alert
+  - `archive-data.sh`: Data archiving
+  - `backup.sh`: Backup utility
+  - `cpu-load-monitor.sh`: CPU load monitor
+  - `health-check.sh`: System health check
+  - `jenkins-centos.sh`: Jenkins installer (CentOS)
+  - `jenkins-ubuntu.sh`: Jenkins installer (Ubuntu)
+  - `sonarqube-install.sh`: SonarQube setup
+  - `ssl-tls-cert-generate.sh`: SSL/TLS cert generator
+  - `nginx-install-amz-linux-2.sh`: Nginx installer
+  - `user-sudo-access-check.sh`: Sudo access checker
+  - ...many more utility scripts!
+- **[Shell-Projects/](./Shell-Projects)** — Project-based shell scripts for real-world automation
+  - `nginx-switchover.sh`: Nginx switchover automation
+- **[Terraform/](./Terraform)** — Infrastructure as Code scripts using Terraform
+  - `packer.sh`: Packer automation
+  - `terraform.sh`: Terraform helpers
+  - `tf-manual-test.sh`: Manual test script
 </details>
 
-<details>
-<summary><strong>AWS</strong></summary>
-Automate AWS operations with CLI and shell scripts.<br>
-EC2, S3, ECS, Nitro, AMI, and more.<br>
-Example: <code>Aws-CLI.sh</code>, <code>aws-ec2.sh</code>, <code>AWS-S3.sh</code>, <code>ecs-service-health-check.sh</code>
-</details>
-
-<details>
-<summary><strong>AZURE</strong></summary>
-Scripts for Azure resource management and automation.<br>
-Example: <code>resources-script-1.sh</code>
-</details>
-
-<details>
-<summary><strong>Bash-Programming</strong></summary>
-Classic programming exercises in bash.<br>
-Armstrong number, Fibonacci, Fractals, Mathematical expressions, etc.<br>
-Example: <code>amstrong-number.sh</code>, <code>fibonacci.sh</code>, <code>mathematical-exprs.sh</code>
-</details>
-
-<details>
-<summary><strong>Bash-Scripting</strong></summary>
-Core bash scripting concepts and utilities.<br>
-Arrays, Operators, Conditions, Loops, Functions, Regex, Sed, Grep, etc.<br>
-Example: <code>Array-Append.sh</code>, <code>Basic-Operators.sh</code>, <code>Regex.sh</code>, <code>Sed.sh</code>
-</details>
-
-<details>
-<summary><strong>cheatsheets</strong></summary>
-Quick reference scripts and images for bash, jq, tmux, etc.<br>
-Example: <code>bash-cheatsheet.sh</code>, <code>jq-cheatsheet.sh</code>, <code>tmux-cheatsheet.webp</code>
-</details>
-
-<details>
-<summary><strong>Databases</strong></summary>
-Database scripts and sample data for PostgreSQL.<br>
-Example: <code>postgres-data.sql</code>, <code>postgresql.sh</code>
-</details>
-
-<details>
-<summary><strong>Docker</strong></summary>
-Scripts for Docker management and container orchestration.<br>
-Example: <code>docker-compose.sh</code>, <code>docker.sh</code>, <code>dockercontainer-status.sh</code>
-</details>
-
-<details>
-<summary><strong>K8s</strong></summary>
-Kubernetes and cloud-native automation scripts.<br>
-Helm, ArgoCD, kops, RBAC, CertBot, etc.<br>
-Example: <code>argocd_install.sh</code>, <code>helm_install.sh</code>, <code>Kubernetes.sh</code>, <code>RBAC.sh</code>
-</details>
-
-<details>
-<summary><strong>Practice</strong></summary>
-Practice files and scripts for learning and testing shell commands.<br>
-Example: <code>multi-file-line-copy.sh</code>, <code>test.sh</code>, <code>mergedfile</code>
-</details>
-
-<details>
-<summary><strong>Scripts</strong></summary>
-A large collection of utility scripts for system administration, monitoring, backups, networking, security, and more.<br>
-Example: <code>Alert-Memory.sh</code>, <code>backup.sh</code>, <code>CPU-Load-Monitor.sh</code>, <code>health-check.sh</code>, <code>Nginx.sh</code>, <code>Sonarqube-install.sh</code>, <code>SSL-TLS-Cert-Gen.sh</code>
-</details>
-
-<details>
-<summary><strong>Shell-Projects</strong></summary>
-Project-based shell scripts for real-world automation scenarios.
-</details>
-
-<details>
-<summary><strong>Terraform</strong></summary>
-Infrastructure as Code scripts using Terraform for cloud provisioning.
-</details>
 
 
 ## 🔗 References
@@ -164,10 +184,12 @@ Infrastructure as Code scripts using Terraform for cloud provisioning.
 
 ---
 
+
 ## 🤝 Contributing
-Feel free to fork, star, and contribute scripts or improvements via pull requests!
+Want to add your own scripts or improvements? Fork, star, and send a pull request! All contributions are welcome—let's build the ultimate shell scripting resource together.
 
 ---
+
 
 ## 📄 License
 This project is licensed under the MIT License.
